@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const etherscan = api3Chains.hardhatConfig.etherscan();
 const networks = api3Chains.hardhatConfig.networks();
-
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 module.exports = {
   etherscan,
   gasReporter: {
@@ -16,7 +16,18 @@ module.exports = {
     outputFile: 'gas_report',
     noColors: true,
   },
-  networks,
+  networks: {
+    "arbitrum-sepolia": {
+      "accounts": [PRIVATE_KEY],
+      "chainId": 421614,
+      "url": "https://sepolia-rollup.arbitrum.io/rpc"
+    },
+    "crab": {
+      "accounts": [PRIVATE_KEY],
+      "chainId": 44,
+      "url": "https://darwiniacrab-rpc.dwellir.com"
+    },
+  },
   paths: {
     tests: process.env.EXTENDED_TEST ? './extended-test' : './test',
   },
