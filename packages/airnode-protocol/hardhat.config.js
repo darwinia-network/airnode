@@ -27,6 +27,11 @@ module.exports = {
       "chainId": 44,
       "url": "https://darwiniacrab-rpc.dwellir.com"
     },
+    "darwinia": {
+      "accounts": [PRIVATE_KEY],
+      "chainId": 46,
+      "url": "https://darwinia-rpc.dwellir.com"
+    },
   },
   paths: {
     tests: process.env.EXTENDED_TEST ? './extended-test' : './test',
